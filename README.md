@@ -24,6 +24,9 @@ cd <myproject>
 # Install dependencies
 npm install
 
+# execute sql file to create the tables in database
+deliah resto create tables.sql 
+
 # Start development server
 node index.js
 ```
