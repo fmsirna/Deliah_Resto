@@ -1,0 +1,245 @@
+openapi: 3.0.2
+info:
+  title: API de Delilah Restó
+  description: "REST API que permita realizar operaciones CRUD sobre una estructura de datos para un restaurant"
+  version: 1.0.0
+servers:
+  - url: /localhost
+paths:
+  /users/signIn:
+    post:
+      summary: Creacion de un usuario nuevo
+      description: Aqui podras crear un nuevo usuario
+      parameters:
+        - in: query
+          name: signIn
+          required: true
+          schema:
+            $ref: "#/components/schemas/usuario"
+      responses:
+        "201":
+          description: Se creo el usuario
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/usuario"
+
+
+  /users/logIn:
+    post:
+      summary: Obtener los datos del usuario que esta en el sistema
+      description: Aqui te damos un solo usuario
+      parameters:
+        - in: query
+          name: logIn
+          required: true
+          schema:
+            $ref: "#/components/schemas/logIn"
+      responses:
+        "200":
+          description: correcto
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/logIn"
+
+  /orders/userOrder:
+    get:
+      summary: Se obtiene las ordenes por usuario
+      responses:
+        "200":
+          description: Todo salio bien
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/order"
+        "404":
+          description: No queremos darte resultados
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: number
+                    default: 404
+                  message:
+                    type: string
+        "500":
+          description: El servidor se cayo
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: number
+                    default: 500
+                  message:
+                    type: string
+                    
+  /orders/insertOrder:
+    post:
+      summary: Creacion de una orden
+      description: Aqui podras crear una orden
+      parameters:
+        - in: query
+          name: orden
+          required: true
+          schema:
+            $ref: "#/components/schemas/insertOrder"
+      responses:
+        "201":
+          description: Se creó la orden
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/insertOrder"
+                
+  /orders/createProduct:
+    post:
+      summary: Creacion de un producto
+      description: Aqui podras crear un producto
+      parameters:
+        - in: query
+          name: orden
+          required: true
+          schema:
+            $ref: "#/components/schemas/producto"
+      responses:
+        "201":
+          description: Se creó la orden
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/producto"
+                               
+  /orders/updateProduct:
+    put:
+      summary: Actualizar un producto existente
+      description: Aqui podras actualizar un producto
+      parameters:
+        - in: query
+          name: producto
+          required: true
+          schema:
+            $ref: "#/components/schemas/producto"
+      responses:
+        "201":
+          description: Se actualizó el producto
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/producto"
+                
+  /orders/deleteProduct:
+    delete:
+      summary: Borrar un producto
+      description: Aqui podras borrar un producto por id
+      parameters:
+        - in: query
+          name: producto
+          required: true
+          schema:
+            $ref: "#/components/schemas/delete"
+      responses:
+        "201":
+          description: Se borró el producto
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/delete"
+
+  /orders/updateState:
+    put:
+      summary: Actualizar el estado de un pedido
+      description: Aqui podras actualizar el estado de un pedido
+      parameters:
+        - in: query
+          name: producto
+          required: true
+          schema:
+            $ref: "#/components/schemas/estado"
+      responses:
+        "201":
+          description: Se actualizó el estado de el pedido
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/estado"
+
+components:
+  schemas:
+    usuario:
+      type: object
+      properties:
+        id:
+          type: string
+        usuario:
+          type: string
+        contrasena:
+          type: string
+        nombre_apellido:
+          type: string
+        email:
+          type: string
+        telefono:
+          type: string
+        direccion:
+          type: string
+          
+    logIn:
+      type: object
+      properties:
+        nombre:
+          type: string
+        contrasena:
+          type: string
+
+    order:
+      type: object
+      properties:
+        usuario:
+          type: string
+        id:
+          type: string
+        producto:
+          type: string
+        descripcion:
+          type: string
+        precio:
+          type: string          
+    insertOrder:
+      type: object
+      properties:
+        forma_de_pago:
+          type: string
+        usuario:
+          type: string
+        forma-pago:
+          type: string
+        fecha:
+          type: string
+          format: date
+    producto:
+      type: object
+      properties:
+        product:
+          type: string
+        descripcion:
+          type: string
+        precio:
+          type: string
+    delete:
+      type: object
+      properties:
+        id:
+          type: string
+    estado:
+      type: object
+      properties:
+        id:
+          type: string          
+        
