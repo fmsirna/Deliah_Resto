@@ -5,7 +5,7 @@ use delilah_resto;
 CREATE TABLE usertable (
     id INT PRIMARY KEY AUTO_INCREMENT,
     usuario VARCHAR (60) NOT NULL unique,
-    contrasena VARCHAR (60) NOT NULL,
+    passHash VARCHAR (60) NOT NULL,
     nombre_apellido VARCHAR (60) NOT NULL,
     e_mail VARCHAR (60) NOT NULL,
     telefono int NOT NULL,
