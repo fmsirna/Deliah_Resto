@@ -2,7 +2,7 @@
 
 ## Descripción general
 
-Este proyecto plantea la creación de un sistema de pedidos online para un restaurante. Deberás poner en funcionamiento las partes necesarias para montar una REST API que permita realizar altas, bajas, modificaciones y obtención de información sobre una estructura de datos que podría consumir un cliente. Parte del desafío estará enfocado en lograr que el desarrollo del proyecto sea puesto en producción utilizando web services.
+El proyecto consistió en crear una API que le permita a los usuarios registrarse, ver un listado de productos disponibles y realizar pedidos de los mismos a un restaurant ficticio. Para realizar dicha tarea la API consume y genera información en una base de datos relacional (mySQL) mediante distintos endpoints establecidos (ExpressJs). 
 
 ## Herramientas 🛠
 
