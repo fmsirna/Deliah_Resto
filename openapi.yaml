@@ -79,8 +79,43 @@ paths:
                     default: 500
                   message:
                     type: string
-                    
-  /orders/insertOrder:
+  /orders/listAvailableProducts:
+    get:
+      summary: Se obtienen todos los productos
+      responses:
+        "200":
+          description: Todo salio bien
+          content:
+            application/json:
+              schema:
+                type: array
+                
+        "404":
+          description: No queremos darte resultados
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: number
+                    default: 404
+                  message:
+                    type: string
+        "500":
+          description: El servidor se cayo
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: number
+                    default: 500
+                  message:
+                    type: string
+                                     
+  /orders/createOrder:
     post:
       summary: Creacion de una orden
       description: Aqui podras crear una orden
@@ -89,14 +124,14 @@ paths:
           name: orden
           required: true
           schema:
-            $ref: "#/components/schemas/insertOrder"
+            $ref: "#/components/schemas/createOrder"
       responses:
         "201":
           description: Se creó la orden
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/insertOrder"
+                $ref: "#/components/schemas/createOrder"
                 
   /orders/createProduct:
     post:
@@ -116,6 +151,24 @@ paths:
               schema:
                 $ref: "#/components/schemas/producto"
                                
+  /orders/insertProductInOrder:
+    post:
+      summary: agregar producto a la orden
+      description: Aqui podras agregar producto a la orden
+      parameters:
+        - in: query
+          name: orden
+          required: true
+          schema:
+            $ref: "#/components/schemas/insertProductInOrder"
+      responses:
+        "201":
+          description: Se inserto producto
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/insertProductInOrder"
+               
   /orders/updateProduct:
     put:
       summary: Actualizar un producto existente
@@ -152,7 +205,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/delete"
 
-  /orders/updateState:
+  /orders/updateOrder:
     put:
       summary: Actualizar el estado de un pedido
       description: Aqui podras actualizar el estado de un pedido
@@ -175,8 +228,6 @@ components:
     usuario:
       type: object
       properties:
-        id:
-          type: string
         usuario:
           type: string
         contrasena:
@@ -193,7 +244,7 @@ components:
     logIn:
       type: object
       properties:
-        nombre:
+        usuario:
           type: string
         contrasena:
           type: string
@@ -211,18 +262,30 @@ components:
           type: string
         precio:
           type: string          
-    insertOrder:
+    createOrder:
       type: object
       properties:
         forma_de_pago:
           type: string
-        usuario:
-          type: string
-        forma-pago:
-          type: string
-        fecha:
-          type: string
-          format: date
+    createProduct:
+      type: object
+      properties:
+        producto:
+          type: string    
+        descripcion:
+          type: string  
+        precio:
+          type: string  
+    insertProductInOrder:
+      type: object
+      properties:
+        producto:
+          type: string    
+        cantidad:
+          type: integer 
+        idOrder:
+          type: integer     
+          
     producto:
       type: object
       properties:
@@ -231,15 +294,15 @@ components:
         descripcion:
           type: string
         precio:
-          type: string
+          type: integer
     delete:
       type: object
       properties:
-        id:
-          type: string
+        idProduct:
+          type: integer
     estado:
       type: object
       properties:
-        id:
-          type: string          
+        idOrder:
+          type: integer          
         

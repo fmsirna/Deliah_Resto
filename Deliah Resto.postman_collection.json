@@ -1,0 +1,361 @@
+{
+	"info": {
+		"_postman_id": "c67d4ea8-ac40-4ff3-8e58-ab899538fa4e",
+		"name": "Deliah Resto",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3000/users/signIn",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"usuario\": \"federico\",\r\n    \"contrasena\": \"123\",\r\n    \"nombre_apellido\": \"fede_sirna\",\r\n    \"email\": \"fede_sirna@hotmail.com\",\r\n    \"telefono\": \"1132010015\",\r\n    \"direccion\": \"loria\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/users/signIn",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"signIn"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/users/logIn",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"usuario\": \"federico\",\r\n    \"contrasena\": \"123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/users/logIn",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"logIn"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/orders/listAvailableProducts",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoiZmVkZXJpY28iLCJlX21haWwiOiJmZWRlX3Npcm5hQGhvdG1haWwuY29tIiwiYWRtaW4iOiJUIiwiaWF0IjoxNjIyNjM3MzI4fQ.P5M2UnlcKvt5bWsCOdBBStrRSnBWK_2-RCwe29GsCAQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/orders/listAvailableProducts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"orders",
+						"listAvailableProducts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/orders/createOrder",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoiZmVkZXJpY28iLCJlX21haWwiOiJmZWRlX3Npcm5hQGhvdG1haWwuY29tIiwiYWRtaW4iOiJUIiwiaWF0IjoxNjIyNjM3MzI4fQ.P5M2UnlcKvt5bWsCOdBBStrRSnBWK_2-RCwe29GsCAQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"forma_de_pago\": \"tarjeta\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/orders/createOrder",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"orders",
+						"createOrder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/orders/insertProductInOrder",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoibWFydGluIiwiZV9tYWlsIjoibHVAaG90bWFpbC5jb20iLCJhZG1pbiI6IkYiLCJpYXQiOjE2MTk2NDcyMzZ9.s6XchA069W-mj7AY5n6uQie6bIb80gGdhX8hHC8_72I",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"producto\": \"tarta\",\r\n    \"cantidad\": 5,\r\n    \"idOrder\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/orders/insertProductInOrder",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"orders",
+						"insertProductInOrder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/orders/updateOrder",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoiZmVkZXJpY28iLCJlX21haWwiOiJmZWRlX3Npcm5hQGhvdG1haWwuY29tIiwiYWRtaW4iOiJUIiwiaWF0IjoxNjIyNjM3MzI4fQ.P5M2UnlcKvt5bWsCOdBBStrRSnBWK_2-RCwe29GsCAQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idOrder\": \"2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/orders/updateOrder",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"orders",
+						"updateOrder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/orders/createProduct",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoiZmVkZXJpY28iLCJlX21haWwiOiJmZWRlX3Npcm5hQGhvdG1haWwuY29tIiwiYWRtaW4iOiJUIiwiaWF0IjoxNjIyNjM3MzI4fQ.P5M2UnlcKvt5bWsCOdBBStrRSnBWK_2-RCwe29GsCAQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"producto\": \"empanada\",\r\n    \"descripcion\": \"gran empanada\",\r\n    \"precio\": 200\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/orders/createProduct",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"orders",
+						"createProduct"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/orders/updateProduct",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoiZmVkZXJpY28iLCJlX21haWwiOiJmZWRlX3Npcm5hQGhvdG1haWwuY29tIiwiYWRtaW4iOiJUIiwiaWF0IjoxNjIyNjM3MzI4fQ.P5M2UnlcKvt5bWsCOdBBStrRSnBWK_2-RCwe29GsCAQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"producto\": \"empanada\",\r\n    \"descripcion\": \"gran empanada\",\r\n    \"precio\": 250\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/orders/updateProduct",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"orders",
+						"updateProduct"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/orders/deleteProduct",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoiZmVkZXJpY28iLCJlX21haWwiOiJmZWRlX3Npcm5hQGhvdG1haWwuY29tIiwiYWRtaW4iOiJUIiwiaWF0IjoxNjIyNjM3MzI4fQ.P5M2UnlcKvt5bWsCOdBBStrRSnBWK_2-RCwe29GsCAQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idProduct\": \"2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/orders/deleteProduct",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"orders",
+						"deleteProduct"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/orders/allOrders",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoiZmVkZXJpY28iLCJlX21haWwiOiJmZWRlX3Npcm5hQGhvdG1haWwuY29tIiwiYWRtaW4iOiJUIiwiaWF0IjoxNjIyNjM3MzI4fQ.P5M2UnlcKvt5bWsCOdBBStrRSnBWK_2-RCwe29GsCAQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/orders/allOrders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"orders",
+						"allOrders"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

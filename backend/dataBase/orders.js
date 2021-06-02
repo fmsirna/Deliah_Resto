@@ -48,7 +48,7 @@ const insertProductInOrder = (idOrder,producto,cantidad) => {
 
 const getAvailableProducts = () => {    
     return sequelize.query(
-        `SSELECT * FROM producttable`,
+        `SELECT * FROM producttable`,
         { type: sequelize.QueryTypes.SELECT }
     )
     .catch(error => console.log(error))    

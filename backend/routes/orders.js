@@ -55,10 +55,8 @@ router.post('/insertProductInOrder',authenticateJWT, async (req, res) => {
   const {
       producto,cantidad,idOrder
   } = req.body        
-  const validProduct= isProduct(producto)
-  console.log(validProduct)  
-
-  if(validProduct.length>0){
+  const validProduct= isProduct(producto)  
+  if(validProduct){
     insertProductInOrder(idOrder,producto,cantidad)
       .then(r => res.json("product added succesfully"))
       .catch(error => res.status(500).json(error))       
@@ -74,7 +72,7 @@ router.post('/createProduct',authenticateJWTAdmin,(req, res) => {
   let precio = req.body.precio; 
 
   createProduct(producto, descripcion, precio)
-  .then(r => res.json())                     
+  .then(r => res.json("product created"))                     
   .catch(error => res.status(500).json(error))    
 })
 
@@ -94,7 +92,7 @@ router.delete("/deleteProduct", authenticateJWTAdmin,  (req, res) => {
     } = req.body  
 
     deleteProduct(idProduct);
-  res.json("Estado actualizado correctamente");
+  res.json("producto eliminado correctamente");
 });
 
 module.exports = router;
